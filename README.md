@@ -21,3 +21,8 @@ The first inner loop also runs n times.
 The case where its reverse sorted, will need to move n elements then n - 1 elements then n - 2 elements until it reaches the 2nd to last element which would make it sorted.
 
 This simplifies into n(n(n-2)) which is $n^3$ - 2 $n^2$ so finaly $\Theta$($n^3$)
+
+“I certify that I have listed all sources used to complete this exercise, including the use
+of any Large Language Models. All of the work is my own, except where stated
+otherwise. I am aware that plagiarism carries severe penalties and that if plagiarism is
+suspected, charges may be filed against me without prior notice.”
