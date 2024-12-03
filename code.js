@@ -1,18 +1,29 @@
 function quicksort(array) {
-    pivot = 0;
-    while (pivot < array.length && array.length > 1) {
-        for (n = 0; n < array.length; n++) {
-            if (n != pivot && pivot != array.length - 1) {
-                if (array[n] < array[pivot] && n > pivot) {
-                    temp = array[n];
-                    for (i = n; i >= pivot; i--) {
-                        array[i] = array[i - 1];
-                    }
-                    array[pivot] = temp;
-                }
+    let stack = [];
+
+    stack.push({low: 0, high: array.length - 1})
+
+    while(stack.length > 0) {
+        let {low, high} = stack.pop();
+
+        if(low >= high) {
+            continue;
+        }
+        let pivot = low;
+
+        for(let n = low + 1; n <= high; n++) {
+            if(array[n] < array[low]) {
+                pivot++;
+                [array[pivot], array[n]] = [array[n], array[pivot]];
             }
         }
-        pivot++;
+        [array[low], array[pivot]] = [array[pivot], array[low]];
+        if(pivot - 1 > low) {
+            stack.push({low: low, high: pivot - 1});
+        }
+        if(pivot + 1 < high) {
+            stack.push({low: pivot + 1, high: high});
+        }
     }
     return array;
 }
