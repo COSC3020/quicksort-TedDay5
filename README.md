@@ -14,13 +14,15 @@ Analyse the time complexity of your implementation and give a $\Theta$ bound for
 its worst-case runtime. Add your answer, including your reasoning, to this
 markdown file.
 
-Worse-case runtime compexity: $\Theta$($n^3$)
+Worse-case runtime compexity: $\Theta$($n^2$)
 
-This is due to the outer loop runing n times as it iterates through the array.
-The first inner loop also runs n times.
-The case where its reverse sorted, will need to move n elements then n - 1 elements then n - 2 elements until it reaches the 2nd to last element which would make it sorted.
+While partitioning it iterates through the subarray to place elements in the correct positions relative to the pivot.
+A subarray of size n would take n time to process because it passes through the array only once.
 
-This simplifies into n(n(n-2)) which is $n^3$ - 2 $n^2$ so finaly $\Theta$($n^3$)
+The case where its reverse sorted or already sorted.
+The partitioning will need to make smaller subarrays.
+There would be n partitioning steps taking n time.
+n * n giving a complexity of $\Theta$($n^2$)
 
 “I certify that I have listed all sources used to complete this exercise, including the use
 of any Large Language Models. All of the work is my own, except where stated
